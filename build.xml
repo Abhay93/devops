@@ -1,0 +1,29 @@
+<?xml version = "1.0"?>
+<project name="devops-project-3" default="test" basedir=".">
+	<description>
+		Number to String java project
+	</description>
+
+	<property name="projectName" value="Numbers" />
+	<property name="src.dir" location="src" />
+	<property name="build.dir" location="bin" />
+	<property name="dist.dir" location="dist" />
+	<property name="junit" location="lib/junit-4.10.jar"/>
+	<target name="compile" description="compile the source ">
+		<javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}"
+			classpath="${junit}" />
+	</target>
+
+	<target name="test" depends="compile">
+		<junit printsummary="on">
+			<classpath>
+				<pathelement location="${junit}" />
+				<pathelement location="${build.dir}" />
+			</classpath>
+			<formatter type="brief" usefile="false" />
+			<test name="com.test.java.NumberWordsApplicationTest" />
+		</junit>
+	</target>
+
+
+</project>
